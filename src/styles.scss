@@ -4,10 +4,18 @@
 @import "assets/css/bootstrap.min.css";
 @import "assets/css/magnific-popup.css";
 @import "assets/css/animate.css";
-// @import "assets/css/owl.carousel.min.css";
+@import "assets/css/owl.carousel.min.css";
 @import "assets/css/themify-icons.css";
 @import "assets/css/pe-icon-7-stroke.css";
 @import "assets/css/meanmenu.min.css";
 @import "assets/css/bundle.css";
 @import "assets/css/style.css";
 @import "assets/css/responsive.css";
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #f33e3e7a;
+}
+.alert {
+  color: red;
+  padding: 0;
+}
