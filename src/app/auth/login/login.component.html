@@ -4,6 +4,9 @@
             <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
                 <div class="login">
                     <div class="login-form-container">
+                        <div class="login-form-container-img" id="img">
+                            <img src="/assets/img/logo/Logo.svg" alt="">
+                        </div>
                         <div class="login-form">
                             <form #form="ngForm" (ngSubmit)="onSumit(form)">
                                 <input ngModel type="text" name="email" placeholder="Email" #email="ngModel"
