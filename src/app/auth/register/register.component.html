@@ -8,7 +8,7 @@
                             <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
                                 <input ngModel type="text" name="name" placeholder="Username" required
                                     #username="ngModel">
-                                <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+                                <div class="alert " *ngIf="username.touched && !username.valid">
                                     <div *ngIf="username.errors.required">
                                         username is required
                                     </div>
@@ -26,14 +26,14 @@
                                 </div>
                                 <input ngModel type="text" name="address" placeholder="address" required
                                     #address="ngModel">
-                                <div class="alert alert-danger" *ngIf="address.touched && !address.valid">
+                                <div class="alert " *ngIf="address.touched && !address.valid">
                                     <div *ngIf="address.errors.required">
                                         address is required
                                     </div>
                                 </div>
                                 <input ngModel type="password" name="password" placeholder="Password" required
                                     #password="ngModel">
-                                <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                                <div class="alert " *ngIf="password.touched && !password.valid">
                                     <div *ngIf="password.errors.required">
                                         password is required
                                     </div>
