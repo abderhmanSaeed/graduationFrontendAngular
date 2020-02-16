@@ -12,6 +12,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(userData) {
-    this.auth.register(userData);
+    userData.id = 100;
+    this.auth.register(userData).subscribe(
+      res => console.log,
+      err => console.log
+    );
   }
 }

@@ -9,17 +9,17 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
   login(data: User) {
     console.log("login from servie", data);
-    const datas = JSON.stringify({
-      UserName: "marwa",
-      Email: "ibrahimgomaa@yahoo.com",
-      Address: "ismailia",
-      ProfilePicture: "woman.png",
-      Password: "012345",
-      RoleID: 2
-    });
+    // const datas = JSON.stringify({
+    //   UserName: "marwa",
+    //   Email: "ibrahimgomaa@yahoo.com",
+    //   Address: "ismailia",
+    //   ProfilePicture: "woman.png",
+    //   Password: "012345",
+    //   RoleID: 2
+    // });
     //this.router.navigate(["/profile"]);
     return this.http
-      .post(environment.baseUrl + "users", datas, {
+      .post(environment.baseUrl + "users", data, {
         headers: new HttpHeaders({
           "Content-Type": "application/json"
         })
@@ -28,5 +28,12 @@ export class AuthService {
   }
   register(data: User) {
     console.log("Register from servie", data);
+    return this.http
+      .post(environment.baseUrl + "users", data, {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json"
+        })
+      })
+      .pipe(tap(res => console.log(res)));
   }
 }
