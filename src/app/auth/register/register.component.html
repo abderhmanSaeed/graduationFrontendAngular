@@ -14,10 +14,10 @@
                                     </div>
                                 </div>
                                 <input ngModel name="email" placeholder="Email" type="email" #email="ngModel"
-                                    class="form-controler ng-invalid ng-dirty ng-touched" required autofocus
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    class="form-controler" required autofocus
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" email>
 
-                                <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                                <div class="alert " *ngIf="email.touched && !email.valid">
                                     <div *ngIf="email.errors.required">
                                         Email is required
                                     </div>
@@ -40,7 +40,8 @@
                                 </div>
                                 <div class="button-box">
 
-                                    <button type="submit" class="default-btn floatright">Register</button>
+                                    <button type="submit" class="default-btn floatright"
+                                        [disabled]="form.invalid">Register</button>
                                 </div>
 
                             </form>

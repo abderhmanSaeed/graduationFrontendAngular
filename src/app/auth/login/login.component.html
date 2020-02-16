@@ -4,27 +4,38 @@
             <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
                 <div class="login">
                     <div class="login-form-container">
+                        <div class="login-form-container-img" id="img">
+                            <img src="/assets/img/logo/Logo.svg" alt="">
+                        </div>
                         <div class="login-form">
                             <form #form="ngForm" (ngSubmit)="onSumit(form)">
                                 <input ngModel type="text" name="email" placeholder="Email" #email="ngModel"
-                                    class="form-controler ng-invalid ng-dirty ng-touched" required autofocus
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    class="form-controler" required autofocus
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" email>
 
-                                <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                                <div class="alert" *ngIf="email.touched && !email.valid">
+
                                     <div *ngIf="email.errors.required">
                                         Email is required
                                     </div>
-                                    <div *ngif="email.errors.pattern">
-                                        Email doesn't match the pattern</div>
+                                    <div *ngIf="email.errors.pattern">
+                                        Email doesn't match the pattern
+                                    </div>
                                 </div>
-                                <input ngModel type="password" name="user-password" placeholder="Password">
+                                <input ngModel #password="ngModel" type="password" name="password"
+                                    placeholder="Password" required>
+                                <div class="alert " *ngIf="password.touched && password.invalid">
+                                    password is required
+                                </div>
                                 <div class="button-box">
+
                                     <!-- <div class="login-toggle-btn">
                                                         <input type="checkbox">
                                                         <label>Remember me</label>
                                                         <a href="#">Forgot Password?</a>
                                                     </div> -->
-                                    <button type="submit" class="default-btn floatright">Login</button>
+                                    <button type="submit" class="default-btn floatright"
+                                        [disabled]="form.invalid">Login</button>
                                 </div>
 
 
