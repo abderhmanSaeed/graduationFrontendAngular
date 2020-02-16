@@ -12,7 +12,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
   onSumit(userData: NgForm) {
-    this.auth.login(userData.value);
+    this.auth.login(userData.value).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
   submit(userData) {
     this.auth.login(userData);

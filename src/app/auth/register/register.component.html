@@ -6,8 +6,13 @@
                     <div class="login-form-container">
                         <div class="login-form">
                             <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-                                <input ngModel type="text" name="name" placeholder="Username">
-                                <input ngModel type="password" name="password" placeholder="Password">
+                                <input ngModel type="text" name="name" placeholder="Username" required
+                                    #username="ngModel">
+                                <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+                                    <div *ngIf="username.errors.required">
+                                        username is required
+                                    </div>
+                                </div>
                                 <input ngModel name="email" placeholder="Email" type="email" #email="ngModel"
                                     class="form-controler ng-invalid ng-dirty ng-touched" required autofocus
                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
@@ -18,6 +23,20 @@
                                     </div>
                                     <div *ngif="email.errors.pattern">
                                         Email doesn't match the pattern</div>
+                                </div>
+                                <input ngModel type="text" name="address" placeholder="address" required
+                                    #address="ngModel">
+                                <div class="alert alert-danger" *ngIf="address.touched && !address.valid">
+                                    <div *ngIf="address.errors.required">
+                                        address is required
+                                    </div>
+                                </div>
+                                <input ngModel type="password" name="password" placeholder="Password" required
+                                    #password="ngModel">
+                                <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                                    <div *ngIf="password.errors.required">
+                                        password is required
+                                    </div>
                                 </div>
                                 <div class="button-box">
 
